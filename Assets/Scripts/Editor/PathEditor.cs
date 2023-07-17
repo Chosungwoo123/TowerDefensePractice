@@ -10,6 +10,39 @@ public class PathEditor : Editor
     private PathCreator creator;
     private Path path;
 
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+        
+        EditorGUI.BeginChangeCheck();
+        
+        if (GUILayout.Button("Create new"))
+        {
+            Undo.RecordObject(creator, "Create new");
+            creator.CreatePath();
+            path = creator.path;
+        }
+
+        if (GUILayout.Button("Toggle closed"))
+        {
+            Undo.RecordObject(creator, "Toggle closed");
+            path.ToggleClosed();
+        }
+
+        bool autoSetControlPoints = GUILayout.Toggle(path.AutoSetControlPoints, "Auto Set Control Points");
+
+        if (autoSetControlPoints != path.AutoSetControlPoints)
+        {
+            Undo.RecordObject(creator, "Toggle auto set controls");
+            path.AutoSetControlPoints = autoSetControlPoints;
+        }
+
+        if (EditorGUI.EndChangeCheck())
+        {
+            SceneView.RepaintAll();
+        }
+    }
+    
     private void OnSceneGUI()
     {
         Input();
@@ -43,7 +76,7 @@ public class PathEditor : Editor
         
         for (int i = 0; i < path.NumPoints; i++)
         {
-            Vector2 newPos = Handles.FreeMoveHandle(path[i], Quaternion.identity, 0.1f, Vector3.zero,
+            Vector2 newPos = Handles.FreeMoveHandle(path[i], Quaternion.identity, 0.3f, Vector3.zero,
                 Handles.CylinderHandleCap);
 
             if (path[i] != newPos)
