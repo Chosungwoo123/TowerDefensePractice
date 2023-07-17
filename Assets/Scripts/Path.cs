@@ -70,37 +70,41 @@ public class Path
      public void MovePoint(int i, Vector2 pos)
      {
           Vector2 deltaMove = pos - points[i];
-          points[i] = pos;
 
-          if (autoSetControlPoints)
+          if (i % 3 == 0 || !autoSetControlPoints)
           {
-               AutoSetAllAffectControlPoints(i);
-          }
-          else
-          {
-               if (i % 3 == 0)
+               points[i] = pos;
+
+               if (autoSetControlPoints)
                {
-                    if (i + 1 < points.Count || isClosed)
-                    {
-                         points[LoopIndex(i + 1)] += deltaMove;
-                    }
-
-                    if (i - 1 >= 0 || isClosed)
-                    {
-                         points[LoopIndex(i - 1)] += deltaMove;
-                    }
+                    AutoSetAllAffectControlPoints(i);
                }
                else
                {
-                    bool nextPointIsAnchor = (i + 1) % 3 == 0;
-                    int correspondingControlIndex = (nextPointIsAnchor) ? i + 2 : i - 2;
-                    int anchorIndex = (nextPointIsAnchor) ? i + 1 : i - 1;
-
-                    if (correspondingControlIndex >= 0 && correspondingControlIndex < points.Count || isClosed)
+                    if (i % 3 == 0)
                     {
-                         float dst = (points[LoopIndex(anchorIndex)] - points[LoopIndex(correspondingControlIndex)]).magnitude;
-                         Vector2 dir = (points[LoopIndex(anchorIndex)] - pos).normalized;
-                         points[LoopIndex(correspondingControlIndex)] = points[LoopIndex(anchorIndex)] + dir * dst;
+                         if (i + 1 < points.Count || isClosed)
+                         {
+                              points[LoopIndex(i + 1)] += deltaMove;
+                         }
+     
+                         if (i - 1 >= 0 || isClosed)
+                         {
+                              points[LoopIndex(i - 1)] += deltaMove;
+                         }
+                    }
+                    else
+                    {
+                         bool nextPointIsAnchor = (i + 1) % 3 == 0;
+                         int correspondingControlIndex = (nextPointIsAnchor) ? i + 2 : i - 2;
+                         int anchorIndex = (nextPointIsAnchor) ? i + 1 : i - 1;
+     
+                         if (correspondingControlIndex >= 0 && correspondingControlIndex < points.Count || isClosed)
+                         {
+                              float dst = (points[LoopIndex(anchorIndex)] - points[LoopIndex(correspondingControlIndex)]).magnitude;
+                              Vector2 dir = (points[LoopIndex(anchorIndex)] - pos).normalized;
+                              points[LoopIndex(correspondingControlIndex)] = points[LoopIndex(anchorIndex)] + dir * dst;
+                         }
                     }
                }
           }
