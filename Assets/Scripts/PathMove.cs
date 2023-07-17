@@ -7,21 +7,12 @@ public class PathMove : MonoBehaviour
 {
     public float moveSpeed;
     
-    public PathCreator path;
+    public Path path;
     
     private Vector3[] curvePoints;
 
     private int moveIndex = 0;
     private int movePosIndex = 0;
-
-    private void Start()
-    {
-        CalculateCurvePoints(30);
-
-        transform.position = curvePoints[movePosIndex];
-
-        movePosIndex = 1;
-    }
 
     private void Update()
     {
@@ -32,7 +23,7 @@ public class PathMove : MonoBehaviour
     {
         if (movePosIndex == curvePoints.Length)
         {
-            CalculateCurvePoints(30);
+            CalculateCurvePoints(50);
             
             transform.position = curvePoints[0];
 
@@ -53,12 +44,14 @@ public class PathMove : MonoBehaviour
 
     private void CalculateCurvePoints(int count)
     {
-        if (moveIndex >= path.path.NumSegments)
+        if (moveIndex >= path.NumSegments)
         {
+            Destroy(gameObject);
+            
             moveIndex = 0;
         }
         
-        Vector2[] temp = path.path.GetPointsInSegment(moveIndex);
+        Vector2[] temp = path.GetPointsInSegment(moveIndex);
 
         Vector2 pA = temp[0];
         Vector2 pB = temp[1];
@@ -87,5 +80,16 @@ public class PathMove : MonoBehaviour
         }
 
         moveIndex++;
+    }
+
+    public void Init(Path path)
+    {
+        this.path = path;
+        
+        CalculateCurvePoints(50);
+
+        transform.position = curvePoints[movePosIndex];
+
+        movePosIndex = 1;
     }
 }
