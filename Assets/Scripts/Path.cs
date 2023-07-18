@@ -27,6 +27,40 @@ public class Path
 
      public Vector2 this[int i] => points[i];
 
+     public bool IsClosed
+     {
+          get
+          {
+               return isClosed;
+          }
+          set
+          {
+               if (isClosed != value)
+               {
+                    isClosed = value;
+
+                    if (isClosed)
+                    {
+                         points.Add(points[^1] * 2 - points[^2]);
+                         points.Add(points[0] * 2 - points[1]);
+                         if (autoSetControlPoints)
+                         {
+                              AutoSetAnchorControlPoints(0);
+                              AutoSetAnchorControlPoints(points.Count - 3);
+                         }
+                    }
+                    else
+                    {
+                         points.RemoveRange(points.Count - 2, 2);
+                         if (autoSetControlPoints)
+                         {
+                              AutoSetStartAndEndControls();
+                         }
+                    }
+               }
+          }
+     }
+
      public bool AutoSetControlPoints
      {
           get
@@ -59,6 +93,20 @@ public class Path
           if (autoSetControlPoints)
           {
                AutoSetAllAffectControlPoints(points.Count - 1);
+          }
+     }
+
+     public void SplitSegment(Vector2 anchorPos, int segmentIndex)
+     {
+          points.InsertRange(segmentIndex * 3 + 2, new Vector2[] { Vector2.zero, anchorPos, Vector2.zero });
+
+          if (autoSetControlPoints)
+          {
+               AutoSetAllAffectControlPoints(segmentIndex * 3 + 3);
+          }
+          else
+          {
+               AutoSetAnchorControlPoints(segmentIndex * 3 + 3);
           }
      }
 
@@ -134,30 +182,6 @@ public class Path
           }
      }
 
-     public void ToggleClosed()
-     {
-          isClosed = !isClosed;
-
-          if (isClosed)
-          {
-               points.Add(points[^1] * 2 - points[^2]);
-               points.Add(points[0] * 2 - points[1]);
-               if (autoSetControlPoints)
-               {
-                    AutoSetAnchorControlPoints(0);
-                    AutoSetAnchorControlPoints(points.Count - 3);
-               }
-          }
-          else
-          {
-               points.RemoveRange(points.Count - 2, 2);
-               if (autoSetControlPoints)
-               {
-                    AutoSetStartAndEndControls();
-               }
-          }
-     }
-
      void AutoSetAllAffectControlPoints(int updatedAnchorIndex)
      {
           for (int i = updatedAnchorIndex - 3; i <= updatedAnchorIndex + 3; i += 3)
@@ -173,7 +197,7 @@ public class Path
      
      void AutoSetAllControlPoints()
      {
-          for (int i = 0; i < points.Count; i++)
+          for (int i = 0; i < points.Count; i += 3)
           {
                AutoSetAnchorControlPoints(i);
           }
@@ -185,21 +209,21 @@ public class Path
      {
           Vector2 anchorPos = points[anchorIndex];
           Vector2 dir = Vector2.zero;
-          float[] neighbourDistance = new float[2];
+          float[] neighbourDistances = new float[2];
 
           if (anchorIndex - 3 >= 0 || isClosed)
           {
                Vector2 offset = points[LoopIndex(anchorIndex - 3)] - anchorPos;
                dir += offset.normalized;
-               neighbourDistance[0] = offset.magnitude;
+               neighbourDistances[0] = offset.magnitude;
           }
           if (anchorIndex + 3 >= 0 || isClosed)
           {
                Vector2 offset = points[LoopIndex(anchorIndex + 3)] - anchorPos;
                dir -= offset.normalized;
-               neighbourDistance[1] = -offset.magnitude;
+               neighbourDistances[1] = -offset.magnitude;
           }
-          
+
           dir.Normalize();
 
           for (int i = 0; i < 2; i++)
@@ -207,7 +231,7 @@ public class Path
                int controlIndex = anchorIndex + i * 2 - 1;
                if (controlIndex >= 0 && controlIndex < points.Count || isClosed)
                {
-                    points[LoopIndex(controlIndex)] = anchorPos + dir * neighbourDistance[i] * 0.5f;
+                    points[LoopIndex(controlIndex)] = anchorPos + dir * neighbourDistances[i] * .5f;
                }
           }
      }
@@ -216,8 +240,8 @@ public class Path
      {
           if (!isClosed)
           {
-               points[1] = (points[0] + points[2]) * 0.5f;
-               points[^2] = (points[^1] + points[^3]) * 0.5f;
+               points[1] = (points[0] + points[2]) * .5f;
+               points[^2] = (points[^1] + points[^3]) * .5f;
           }
      }
 

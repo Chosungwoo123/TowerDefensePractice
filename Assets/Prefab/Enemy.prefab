@@ -97,6 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368bd25a30079ed49b4a022ff20ab267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 2
   path:
     points: []
+    isClosed: 0
+    autoSetControlPoints: 0
