@@ -24,6 +24,11 @@ public class Node : MonoBehaviour
         {
             return;
         }
+
+        if (turret != null)
+        {
+            // 업그레이드 UI
+        }
         
         BuildManager.Instance.ShowBuildWindow(this);
     }
