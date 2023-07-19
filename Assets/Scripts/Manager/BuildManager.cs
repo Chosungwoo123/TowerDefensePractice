@@ -11,6 +11,8 @@ public class BuildManager : MonoBehaviour
 
     public NodeBuildUI nodeBuildUI;
 
+    public NodeUpgradeUI nodeUpgradeUI;
+
     public static BuildManager Instance
     {
         get
@@ -36,22 +38,36 @@ public class BuildManager : MonoBehaviour
         }
     }
 
-    public void ShowBuildWindow(Node _node)
+    public void ShowBuildWindow(Node node)
     {
-        if (selectNode == _node)
+        if (selectNode == node)
         {
             DeselectNode();
             return;
         }
         
-        selectNode = _node;
+        selectNode = node;
         
-        nodeBuildUI.ShowBuildUI(_node);
+        nodeBuildUI.ShowBuildUI(node);
+    }
+
+    public void ShowUpgradeWindow(Node node)
+    {
+        if (selectNode == node)
+        {
+            DeselectNode();
+            return;
+        }
+
+        selectNode = node;
+        
+        nodeUpgradeUI.ShowUpgradeUI(node);
     }
     
     public void DeselectNode()
     {
         selectNode = null;
         nodeBuildUI.HideBuildUI();
+        nodeUpgradeUI.HideUpgradeUI();
     }
 }

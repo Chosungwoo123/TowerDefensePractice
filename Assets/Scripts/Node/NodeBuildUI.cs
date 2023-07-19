@@ -38,12 +38,15 @@ public class NodeBuildUI : MonoBehaviour
         {
             buildButtons[i].GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
             buildButtons[i].gameObject.SetActive(true);
+            buildButtons[i].interactable = false;
         }
 
         for (int i = 0; i < buildButtons.Length; i++)
         {
             buildButtons[i].GetComponent<RectTransform>().DOAnchorPos(buildButtonsPos[i], 0.3f);
         }
+
+        StartCoroutine(ButtonRoutine());
     }
     
     public void HideBuildUI()
@@ -52,6 +55,7 @@ public class NodeBuildUI : MonoBehaviour
         
         for (int i = 0; i < buildButtons.Length; i++)
         {
+            buildButtons[i].interactable = false;
             buildButtons[i].GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, 0.3f);
         }
 
@@ -63,6 +67,16 @@ public class NodeBuildUI : MonoBehaviour
         selectNode.BuildTower(towerPrefab);
         
         BuildManager.Instance.DeselectNode();
+    }
+    
+    IEnumerator ButtonRoutine()
+    {
+        yield return waitForSeconds;
+
+        for (int i = 0; i < buildButtons.Length; i++)
+        {
+            buildButtons[i].interactable = true;
+        }
     }
     
     IEnumerator DisableButton()

@@ -28,6 +28,10 @@ public class Node : MonoBehaviour
         if (tower != null)
         {
             // 업그레이드 UI
+            
+            BuildManager.Instance.ShowUpgradeWindow(this);
+            
+            return;
         }
         
         BuildManager.Instance.ShowBuildWindow(this);
@@ -39,6 +43,12 @@ public class Node : MonoBehaviour
 
         var srColor = sr.color;
         srColor.a = 0;
+    }
+    
+    public void DestoryTower()
+    {
+        Destroy(tower);
+        tower = null;
     }
 
     private void OnMouseEnter()

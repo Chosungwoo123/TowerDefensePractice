@@ -147,6 +147,11 @@ public class PathEditor : Editor
             {
                 Handles.color = (i % 3 == 0) ? creator.anchorCol : creator.controlCol;
 
+                if (i == 0)
+                {
+                    Handles.color = Color.black;
+                }
+
                 float handleSize = (i % 3 == 0) ? creator.anchorDiameter : creator.controlDiameter;
 
                 Vector2 newPos = Handles.FreeMoveHandle(Path[i], Quaternion.identity, 0.3f, Vector3.zero,

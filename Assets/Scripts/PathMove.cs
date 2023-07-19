@@ -14,6 +14,13 @@ public class PathMove : MonoBehaviour
     private int moveIndex = 0;
     private int movePosIndex = 0;
 
+    private SpriteRenderer sr;
+
+    private void Start()
+    {
+        sr = GetComponent<SpriteRenderer>();
+    }
+
     private void Update()
     {
         MoveUpdate();
@@ -33,8 +40,14 @@ public class PathMove : MonoBehaviour
         Vector3 nextPos = curvePoints[movePosIndex] - transform.position;
         transform.position += nextPos.normalized * (moveSpeed * Time.deltaTime);
 
-        float angle = Mathf.Atan2(nextPos.normalized.y, nextPos.normalized.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+        if (nextPos.x < 0)
+        {
+            sr.flipX = true;
+        }
+        else
+        {
+            sr.flipX = false;
+        }
 
         if (Vector2.Distance(transform.position, curvePoints[movePosIndex]) <= 0.1f)
         {
