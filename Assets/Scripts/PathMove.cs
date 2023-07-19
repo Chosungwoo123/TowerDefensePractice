@@ -23,7 +23,7 @@ public class PathMove : MonoBehaviour
     {
         if (movePosIndex == curvePoints.Length)
         {
-            CalculateCurvePoints(50);
+            CalculateCurvePoints(60);
             
             transform.position = curvePoints[0];
 
@@ -86,7 +86,7 @@ public class PathMove : MonoBehaviour
     {
         this.path = path;
         
-        CalculateCurvePoints(50);
+        CalculateCurvePoints(60);
 
         transform.position = curvePoints[movePosIndex];
 

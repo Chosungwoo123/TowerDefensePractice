@@ -9,9 +9,11 @@ public class NodeBuildUI : MonoBehaviour
 {
     public Button[] buildButtons;
     
-    public Vector2[] buildButtonsPos;
+    private Vector2[] buildButtonsPos;
 
-    private WaitForSeconds _waitForSeconds;
+    private WaitForSeconds waitForSeconds;
+
+    private Node selectNode;
 
     private void Start()
     {
@@ -23,12 +25,14 @@ public class NodeBuildUI : MonoBehaviour
             buildButtons[i].gameObject.SetActive(false);
         }
 
-        _waitForSeconds = new WaitForSeconds(0.3f);
+        waitForSeconds = new WaitForSeconds(0.3f);
     }
 
     public void ShowBuildUI(Node node)
     {
-        transform.position = node.transform.position; 
+        transform.position = node.transform.position;
+
+        selectNode = node;
         
         for (int i = 0; i < buildButtons.Length; i++)
         {
@@ -44,6 +48,8 @@ public class NodeBuildUI : MonoBehaviour
     
     public void HideBuildUI()
     {
+        selectNode = null;
+        
         for (int i = 0; i < buildButtons.Length; i++)
         {
             buildButtons[i].GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, 0.3f);
@@ -51,10 +57,17 @@ public class NodeBuildUI : MonoBehaviour
 
         StartCoroutine(DisableButton());
     }
+
+    public void BuildTower(GameObject towerPrefab)
+    {
+        selectNode.BuildTower(towerPrefab);
+        
+        BuildManager.Instance.DeselectNode();
+    }
     
     IEnumerator DisableButton()
     {
-        yield return _waitForSeconds;
+        yield return waitForSeconds;
         
         for (int i = 0; i < buildButtons.Length; i++)
         {

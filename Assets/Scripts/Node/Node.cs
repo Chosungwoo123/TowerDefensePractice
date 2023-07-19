@@ -8,8 +8,8 @@ public class Node : MonoBehaviour
 {
     public Color overColor;
     public Color nomalColor;
-
-    public GameObject turret;
+    
+    private GameObject tower;
     
     private SpriteRenderer sr;
 
@@ -25,12 +25,20 @@ public class Node : MonoBehaviour
             return;
         }
 
-        if (turret != null)
+        if (tower != null)
         {
             // 업그레이드 UI
         }
         
         BuildManager.Instance.ShowBuildWindow(this);
+    }
+
+    public void BuildTower(GameObject towerPrefab)
+    {
+        tower = Instantiate(towerPrefab, transform.position, Quaternion.identity);
+
+        var srColor = sr.color;
+        srColor.a = 0;
     }
 
     private void OnMouseEnter()

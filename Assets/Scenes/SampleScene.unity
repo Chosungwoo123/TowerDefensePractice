@@ -203,6 +203,133 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29321228}
   m_CullTransparentMesh: 1
+--- !u!1 &342556037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 342556041}
+  - component: {fileID: 342556040}
+  - component: {fileID: 342556039}
+  - component: {fileID: 342556038}
+  m_Layer: 0
+  m_Name: Node (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &342556038
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342556037}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &342556039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342556037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67047e03024fd9745880d5c2fd9a808e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
+  nomalColor: {r: 1, g: 1, b: 1, a: 1}
+  tower: {fileID: 0}
+--- !u!212 &342556040
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342556037}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &342556041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342556037}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.16, y: -0.78, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &387939540
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -463,8 +590,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
+    m_PressedColor: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -484,7 +611,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 532021534}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1465856439}
+        m_TargetAssemblyTypeName: NodeBuildUI, Assembly-CSharp
+        m_MethodName: BuildTower
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 913957603555291188, guid: afc55cf3092f97b419e2de041d53f52c, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &532021534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,7 +864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -734,8 +873,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
+    m_PressedColor: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -755,7 +894,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 659818531}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1465856439}
+        m_TargetAssemblyTypeName: NodeBuildUI, Assembly-CSharp
+        m_MethodName: BuildTower
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 913957603555291188, guid: afc55cf3092f97b419e2de041d53f52c, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &667348083
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,16 +938,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path:
     points:
-    - {x: -6.6330123, y: 7.7759485}
-    - {x: -8.861824, y: 6.55218}
-    - {x: -6.937095, y: -3.9909449}
-    - {x: -3.4423733, y: -4.318212}
-    - {x: -1.172555, y: -4.5307717}
-    - {x: 5.394697, y: -3.7563863}
-    - {x: 6.722404, y: -2.695324}
-    - {x: 9.092847, y: -0.8009391}
-    - {x: 7.9991717, y: 7.580855}
-    - {x: 5.5483947, y: 7.6439543}
+    - {x: -10.545112, y: -1.7399652}
+    - {x: -6.694314, y: -4.7083187}
+    - {x: -1.6063457, y: -4.4400334}
+    - {x: 1.8883753, y: -4.7673006}
+    - {x: 4.1581936, y: -4.979862}
+    - {x: 7.214755, y: -4.2720795}
+    - {x: 8.497487, y: -1.573699}
+    - {x: 10.294213, y: 2.205929}
+    - {x: 5.664285, y: 5.7332454}
+    - {x: -1.3242111, y: 4.366253}
+    - {x: -4.5151105, y: 3.7420936}
+    - {x: -8.103785, y: 3.528948}
+    - {x: -12.168251, y: 1.9941489}
     isClosed: 0
     autoSetControlPoints: 0
   anchorCol: {r: 1, g: 0, b: 0, a: 1}
@@ -890,7 +1044,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &742415616
 GameObject:
@@ -921,7 +1075,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -951,7 +1105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
   nomalColor: {r: 1, g: 1, b: 1, a: 1}
-  turret: {fileID: 0}
+  tower: {fileID: 0}
 --- !u!212 &742415619
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1372,7 +1526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
   nomalColor: {r: 1, g: 1, b: 1, a: 1}
-  turret: {fileID: 0}
+  tower: {fileID: 0}
 --- !u!61 &1416295189
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1383,7 +1537,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1517,7 +1671,6 @@ MonoBehaviour:
   - {fileID: 1633489005}
   - {fileID: 659818533}
   - {fileID: 1566030505}
-  buildButtonsPos: []
 --- !u!1 &1566030504
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,7 +1703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1559,8 +1712,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
+    m_PressedColor: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1580,7 +1733,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1566030506}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1465856439}
+        m_TargetAssemblyTypeName: NodeBuildUI, Assembly-CSharp
+        m_MethodName: BuildTower
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 913957603555291188, guid: afc55cf3092f97b419e2de041d53f52c, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1566030506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1731,7 +1896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1740,8 +1905,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
+    m_PressedColor: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1761,7 +1926,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1633489003}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1465856439}
+        m_TargetAssemblyTypeName: NodeBuildUI, Assembly-CSharp
+        m_MethodName: BuildTower
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 913957603555291188, guid: afc55cf3092f97b419e2de041d53f52c, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1780640950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,7 +1968,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1821,7 +1998,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
   nomalColor: {r: 1, g: 1, b: 1, a: 1}
-  turret: {fileID: 0}
+  tower: {fileID: 0}
 --- !u!212 &1780640953
 SpriteRenderer:
   m_ObjectHideFlags: 0
