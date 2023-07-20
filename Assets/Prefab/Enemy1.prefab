@@ -353,6 +353,8 @@ MonoBehaviour:
   barWidth: 125.8
   damagedBarTemplate: {fileID: 4053715910185102447, guid: bce5133fc8b3a594f9e6dc620124ab92, type: 3}
   canvas: {fileID: 1674905135}
+  hitMat: {fileID: 2100000, guid: dbcc4710dfb0ab045aad127f222cd90c, type: 2}
+  defaultMat: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
 --- !u!114 &8724363430998059600
 MonoBehaviour:
   m_ObjectHideFlags: 0

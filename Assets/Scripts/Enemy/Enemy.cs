@@ -14,11 +14,18 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject damagedBarTemplate;
 
     [SerializeField] private Transform canvas;
+    
+    [SerializeField] private Material hitMat;
+    [SerializeField] private Material defaultMat;
+
+    private SpriteRenderer sr;
 
     private float curHealth;
 
     private void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
+        
         curHealth = maxHealth;
     }
 
@@ -39,9 +46,20 @@ public class Enemy : MonoBehaviour
 
         damagedBar.GetComponent<Image>().fillAmount = beforeDamageBarFillAmount - healthImage.fillAmount;
 
+        StartCoroutine(HitRoutine());
+
         if (curHealth <= 0)
         {
             Destroy(gameObject);
         }
+    }
+    
+    private IEnumerator HitRoutine()
+    {
+        sr.material = hitMat;
+
+        yield return new WaitForSeconds(0.1f);
+
+        sr.material = defaultMat;
     }
 }
