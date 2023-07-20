@@ -49,7 +49,7 @@ public class PathMove : MonoBehaviour
             sr.flipX = false;
         }
 
-        if (Vector2.Distance(transform.position, curvePoints[movePosIndex]) <= 0.1f)
+        if (Vector2.Distance(transform.position, curvePoints[movePosIndex]) <= 0.01f)
         {
             movePosIndex++;
         }
