@@ -10,6 +10,11 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private Image healthImage;
 
+    [SerializeField] private float barWidth;
+    [SerializeField] private GameObject damagedBarTemplate;
+
+    [SerializeField] private Transform canvas;
+
     private float curHealth;
 
     private void Start()
@@ -17,14 +22,22 @@ public class Enemy : MonoBehaviour
         curHealth = maxHealth;
     }
 
-    private void Update()
-    {
-        healthImage.fillAmount = Mathf.Lerp(healthImage.fillAmount, curHealth / maxHealth, Time.deltaTime * 4);
-    }
-
     public void OnDamage(float damage)
     {
+        float beforeDamageBarFillAmount = healthImage.fillAmount;
+
+        GameObject damagedBar = Instantiate(damagedBarTemplate, canvas.transform);
+
+        damagedBar.SetActive(true);
+        
         curHealth -= damage;
+
+        healthImage.fillAmount = curHealth / maxHealth;
+
+        damagedBar.GetComponent<RectTransform>().anchoredPosition = new Vector2(healthImage.fillAmount * barWidth,
+            healthImage.GetComponent<RectTransform>().anchoredPosition.y);
+
+        damagedBar.GetComponent<Image>().fillAmount = beforeDamageBarFillAmount - healthImage.fillAmount;
 
         if (curHealth <= 0)
         {

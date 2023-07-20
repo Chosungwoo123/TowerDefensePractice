@@ -137,7 +137,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 139}
+  m_AnchoredPosition: {x: 0, y: 125.3}
   m_SizeDelta: {x: 130, y: 14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5549727805091160574
@@ -350,6 +350,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   healthImage: {fileID: 4912590068094031236}
+  barWidth: 125.8
+  damagedBarTemplate: {fileID: 4053715910185102447, guid: bce5133fc8b3a594f9e6dc620124ab92, type: 3}
+  canvas: {fileID: 1674905135}
 --- !u!114 &8724363430998059600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,8 +405,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 139}
-  m_SizeDelta: {x: 130, y: 14}
+  m_AnchoredPosition: {x: 0, y: 125.3}
+  m_SizeDelta: {x: 125.8, y: 14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7059154804968964660
 CanvasRenderer:
