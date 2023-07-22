@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private PathCreator path;
     
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject[] enemyPrefab;
 
     [SerializeField] private float spawnTime;
 
@@ -31,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (spawnTimer <= 0)
         {
-            var enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+            var enemy = Instantiate(enemyPrefab[UnityEngine.Random.Range(0, enemyPrefab.Length)], spawnPos, Quaternion.identity);
             
             enemy.GetComponent<PathMove>().Init(path.path);
 
