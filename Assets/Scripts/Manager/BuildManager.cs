@@ -66,8 +66,19 @@ public class BuildManager : MonoBehaviour
     
     public void DeselectNode()
     {
+        HideBuildUI();
+        HideUpgradeUI();
+    }
+    
+    public void HideBuildUI()
+    {
         selectNode = null;
         nodeBuildUI.HideBuildUI();
+    }
+    
+    public void HideUpgradeUI()
+    {
+        selectNode = null;
         nodeUpgradeUI.HideUpgradeUI();
     }
 }

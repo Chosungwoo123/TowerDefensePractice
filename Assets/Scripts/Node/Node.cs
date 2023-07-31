@@ -29,10 +29,14 @@ public class Node : MonoBehaviour
         {
             // 업그레이드 UI
             
+            BuildManager.Instance.HideBuildUI();
+            
             BuildManager.Instance.ShowUpgradeWindow(this);
             
             return;
         }
+        
+        BuildManager.Instance.HideUpgradeUI();
         
         BuildManager.Instance.ShowBuildWindow(this);
     }

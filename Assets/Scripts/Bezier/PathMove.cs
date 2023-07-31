@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PathMove : MonoBehaviour
 {
@@ -14,10 +15,17 @@ public class PathMove : MonoBehaviour
     private int movePosIndex = 0;
 
     private SpriteRenderer sr;
+    
+    private Vector3 offset;
 
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+    }
+
+    private void OnEnable()
+    {
+        offset = new Vector3(0, Random.Range(-1f, 1f), 0);
     }
 
     private void Update()
@@ -27,7 +35,7 @@ public class PathMove : MonoBehaviour
 
     private void MoveUpdate()
     {
-        Vector3 nextPos = (Vector3)curvePoints[movePosIndex] - transform.position;
+        Vector3 nextPos = (Vector3)curvePoints[movePosIndex] - transform.position + offset;
         transform.position += nextPos.normalized * (moveSpeed * Time.deltaTime);
 
         if (nextPos.x < 0)
@@ -39,7 +47,7 @@ public class PathMove : MonoBehaviour
             sr.flipX = false;
         }
 
-        if (Vector2.Distance(transform.position, curvePoints[movePosIndex]) <= 0.01f)
+        if (Vector2.Distance(transform.position - offset, curvePoints[movePosIndex]) <= 0.01f)
         {
             movePosIndex++;
         }
@@ -56,7 +64,7 @@ public class PathMove : MonoBehaviour
 
         curvePoints = path.CalculateEvenlySpacedPoints(0.1f);
         
-        transform.position = curvePoints[movePosIndex];
+        transform.position = curvePoints[movePosIndex] + (Vector2)offset;
 
         movePosIndex = 1;
     }

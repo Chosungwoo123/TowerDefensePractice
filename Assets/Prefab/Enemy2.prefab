@@ -285,7 +285,7 @@ Transform:
   m_GameObject: {fileID: 7790256892617469245}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7959745317125151085}
@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6911d4381f0ef9e4990c127b6020ee1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 5
   healthImage: {fileID: 4522866944936522178}
   barWidth: 125.8
   damagedBarTemplate: {fileID: 4053715910185102447, guid: bce5133fc8b3a594f9e6dc620124ab92, type: 3}
@@ -443,4 +443,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368bd25a30079ed49b4a022ff20ab267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 1
